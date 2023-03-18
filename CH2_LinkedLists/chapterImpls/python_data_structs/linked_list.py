@@ -13,8 +13,11 @@ class UnidirectionalNode:
     def set_value(self, value):
         self.value = value
 
+    def __str__(self) -> str:
+        return "Value: " + str(self.get_value())
+
 class SinglyLinkedList:
-    def __init__(self, head: UnidirectionalNode):
+    def __init__(self, head):
         self.head = head
 
     def get_head(self):
@@ -53,3 +56,16 @@ class SinglyLinkedList:
                 curr.set_next(curr.get_next().get_next())
                 return self.get_head()
         return self.get_head()
+
+    def __str__(self) -> str:
+        if self.head == None:
+            return "Empty List"
+        return "Head Value: " + str(self.head.value)
+
+if __name__ == '__main__':
+    first_node: UnidirectionalNode = UnidirectionalNode(None, 0)
+    sll: SinglyLinkedList = SinglyLinkedList(None)
+    print("Singly Linked List:",sll)
+    print("First Node:",first_node)
+    sll.set_head(first_node)
+    print("Singly Linked List:",sll)
