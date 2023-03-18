@@ -16,13 +16,5 @@ if __name__ == "__main__":
             line = line.replace("\n","")
             print(check_perm(line, "totapo"))
         file.close()
-
-        print("\nAnswers should be:")
-        fileName = "test_answers.txt"
-        file = open(fileName)
-        for line in file:
-            print(line.replace("\n",""))
-        file.close()
-
     except:
         print("File not supplied")

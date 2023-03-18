@@ -13,13 +13,5 @@ if __name__ == "__main__":
         for line in file:
             print(is_unique(line))
         file.close()
-
-        print("\nAnswers should be:")
-        answerFileName = "test_answers.txt"
-        file = open(answerFileName)
-        for line in file:
-            print(line.replace("\n",""))
-        file.close()
-
     except:
         print("File not supplied")

@@ -14,12 +14,5 @@ if __name__ == "__main__":
             line = line.replace("\n","")
             line_arr = line.split(",")
             print(urlify(line_arr[0]))
-
-        print("\nAnswers should be:")
-        file_name = "test_answers.txt"
-        file = open(file_name)
-        for line in file:
-            print(line.replace("\n",""))
-
     except:
         print("File not supplied")
