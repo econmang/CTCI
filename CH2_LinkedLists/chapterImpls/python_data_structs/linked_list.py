@@ -1,71 +1,108 @@
-class UnidirectionalNode:
-    def __init__(self, next, value):
-        self.next = next
-        self.value = value
-
-    def get_next(self):
-        return self.next
-    def get_value(self):
-        return self.value
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.prev = None
+        self.next = None
 
     def set_next(self, next):
         self.next = next
-    def set_value(self, value):
-        self.value = value
 
-    def __str__(self) -> str:
-        return "Value: " + str(self.get_value())
+    def set_prev(self, prev):
+        self.prev = prev
 
-class SinglyLinkedList:
+class LinkedList:
     def __init__(self, head):
         self.head = head
 
-    def get_head(self):
-        return self.head
-    def set_head(self, head: UnidirectionalNode):
-        self.head = head
-
     def traverse(self):
-        curr = self.get_head()
-        while curr.next != None:
-            curr = curr.next
-        return curr
+        current_node = self.head
+        while current_node:
+            print(current_node.data)
+            current_node = current_node.next
 
-    def append_to_tail(self, value):
-        final_node = self.traverse()
-        new_node: UnidirectionalNode = UnidirectionalNode(None, value)
-        final_node.next = new_node
+    def remove_dupes(self):
+        existing_data = {}
+        current_node = self.head
+        while current_node:
+            if current_node.data in existing_data and current_node.prev:
+                current_node.prev.set_next(current_node.next)
+                try:
+                    current_node.next.set_prev(current_node.prev)
+                except:
+                    current_node.next = None
+                current_node = current_node.next
+            else:
+                existing_data[current_node.data] = True
+                current_node = current_node.next
 
-    def search(self, value):
-        curr = self.get_head()
-        while (curr != None):
-            if curr.value == value:
-                return curr
-            curr = curr.next
-        return None
+    def kth_from_last(self, k):
+        current_node = self.head
+        while current_node.next:
+            current_node = current_node.next
+        for _ in range(k):
+            current_node = current_node.prev if current_node else None
+        return current_node.data if current_node else None
 
-    def delete(self, value):
-        curr = self.get_head()
-        if curr == None:
-            return None
-        elif curr.value == value:
-            self.set_head(curr.next)
-            return self.get_head()
-        while curr.get_next() != None:
-            if curr.get_next().get_value() == value:
-                curr.set_next(curr.get_next().get_next())
-                return self.get_head()
-        return self.get_head()
+    def gen_dupe_test(self):
+        self.head = Node(1)
+        node2 = Node(3)
+        node3 = Node(3)
+        node4 = Node(3)
+        self.head.set_next(node2)
+        node2.set_next(node3)
+        node2.set_prev(self.head)
+        node3.set_next(node4)
+        node3.set_prev(node2)
+        node4.set_prev(node3)
 
-    def __str__(self) -> str:
-        if self.head == None:
-            return "Empty List"
-        return "Head Value: " + str(self.head.value)
+    def gen_kth_from_last_test(self):
+        self.head = Node(1)
+        node2 = Node(2)
+        node3 = Node(3)
+        node4 = Node(4)
+        self.head.set_next(node2)
+        node2.set_next(node3)
+        node2.set_prev(self.head)
+        node3.set_next(node4)
+        node3.set_prev(node2)
+        node4.set_prev(node3)
+
+    def deleteNode(self, data):
+        current_node = self.head
+        while current_node:
+            if current_node.data == data:
+                current_node.prev.set_next(current_node.next if current_node else None)
+                current_node.next.set_prev(current_node.prev if current_node else None)
+                current_node = None
+            else:
+                current_node = current_node.next
+    
+    def sum_lists(self, second_list_head: Node):
+        curr_node_1 = self.head
+        curr_node_2 = second_list_head
+        sum_list_1 = 0
+        sum_list_2 = 0
+        while curr_node_1:
+            sum_list_1 += curr_node_1.data
+            curr_node_1 = curr_node_1.next
+        while curr_node_2:
+            sum_list_2 += curr_node_2.data
+            curr_node_2 = curr_node_2.next
+        return sum_list_1 + sum_list_2
 
 if __name__ == '__main__':
-    first_node: UnidirectionalNode = UnidirectionalNode(None, 0)
-    sll: SinglyLinkedList = SinglyLinkedList(None)
-    print("Singly Linked List:",sll)
-    print("First Node:",first_node)
-    sll.set_head(first_node)
-    print("Singly Linked List:",sll)
+    # Create a linked list with 3 nodes
+    node1 = Node(1)
+    linked_list = LinkedList(node1)
+    linked_list.gen_dupe_test()
+    print("Initial list")
+    linked_list.traverse()
+    print("Removing duplicates")
+    linked_list.remove_dupes()
+    linked_list.traverse()
+    print("Kth from last")
+    linked_list.gen_kth_from_last_test()
+    print(linked_list.kth_from_last(2))
+    print("Deleting node")
+    linked_list.deleteNode(3)
+    linked_list.traverse()
