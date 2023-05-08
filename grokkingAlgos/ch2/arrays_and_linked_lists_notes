@@ -1,0 +1,20 @@
+Arrays: Fixed-length data structure with contiguous data. If an element needs to be added beyond the arrays current length,
+        the whole array needs to be copied out to another memory location to allow for the addition.
+        But, you know the address of each element, making for quick lookup.
+        Deletion of an element requires you to shift all other elements in memory.
+        Allows for random access.
+
+Linked Lists: Data does not have to be contiguous in memory. Each node has a reference to the next one in the list.
+              This makes inserting very fast, but you can't hop directly to a specific node (you always traverse to find
+              the node you're searching for in memory).
+              Deletion requires only changing the pointer of one element in the array.
+              Only allows for sequential access.
+
+        Reading | Inserts | Delete |
+____________________________________
+|Arrays|  O(1)   |  O(n)   |  O(n) |
+------------------------------------
+|  LLs |  O(n)   | O(1)    |  O(1) |
+------------------------------------
+
+Essentially they have inverse benefits and weaknesses.

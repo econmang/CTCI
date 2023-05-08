@@ -1,0 +1,28 @@
+Ch. 2 Exercises
+---------------
+
+2.1) Suppose you're building an app to keep track of finances and every day you write down what you spent money on.
+     Then at the end of each month, you review each item in the list to review what you spent money on.
+     Should you use an array or linked list for this use case?
+
+    - You should use a linked list since you'll be inserting frequently. And since you plan to read every node
+      in the list anyways, there is no performance hit to traversal of the LL.
+
+2.2) You're building an app for a restaurant to take customer order. Your app needs to store a list of order.
+     Chef pulls each individually off the queue and cooks it. Should you use an array or LL?
+
+     - LL because you are going to be writing/deleting often and only will be reading in a sequential manner.
+
+2.3) Sp FB keeps a list of usernames. When someone tris to log in to FB, it has to search for the name in list.
+     If it's there, they can log in. To speed this up, they use binary search, which needs random access.
+     Should you use LL or array?
+
+     - Array because you require random access and will be doing reads often.
+
+2.4) Sp you're using an array. What are the downsides when having to add users?
+
+    - If the number of users exceeds the given capacity, it would require to completely copy the array
+      to allocate space for the new user. Plus, the addition of a user means you'd have to re-sort the array
+      in order to use binary search.
+
+2.5) 
