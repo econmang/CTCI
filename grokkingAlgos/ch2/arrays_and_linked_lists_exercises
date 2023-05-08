@@ -25,4 +25,12 @@ Ch. 2 Exercises
       to allocate space for the new user. Plus, the addition of a user means you'd have to re-sort the array
       in order to use binary search.
 
-2.5) 
+2.5) Consider a hybrid data structure: An array of linked lists. You have an array w/ 26 slots. Each slot points
+     to a linked list, where each list could store the user named starting with a certain letter. How would the
+     new data structure compare in terms of inserts and reads?
+
+     - Inserts would be made faster as you could just go to the correct bucket in the array and then it would take
+       O(1) to insert into the LL. Reads would slower. You would know the bucket to look in, reducing the overall
+       search size, but worst case search runtime would still be O(m)
+       [m some number smaller than n, the total number of users] since the underlying structure is a LL. So slower than
+       the array, but faster than the LL.
