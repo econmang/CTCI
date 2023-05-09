@@ -18,3 +18,9 @@ ____________________________________
 ------------------------------------
 
 Essentially they have inverse benefits and weaknesses.
+
+Selection Sort:
+
+Algo: Go through a collection and find the smallest element. Pop the element and push it to the target collection.
+      Once the initial collection is empty, you are done. Since you have to search the array n times, each time
+      review the n elements, this leaves you with an algorithmic complexity of O(n^2)
