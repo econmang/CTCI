@@ -4,8 +4,7 @@
 
 _A capacity can be specified for the stacks to be implemented. Then an array can be initialized with the size of 3 times the capacity. From there, the array can have methods implemented on it to target a specific stacks internally and then perform operations on it._
 
-3.2) How would you design a stack which, in addition to push and pop, has a function min which returns the minimum element? Push, pop, an
-     min should all operate in O(1) time.
+3.2) How would you design a stack which, in addition to push and pop, has a function min which returns the minimum element? Push, pop, and min should all operate in O(1) time.
 
 3.3) Imagine a (literal) stack of plates. If the stack gets too high, it might topple. Therefore, in real life, we would likely star
      a new stack when the previous stack exceeds some threshold. Implements a data structure SetOfStacks that mimics this.
