@@ -1,0 +1,5 @@
+Stacks:
+    - A LIFO data structure that supports push, pop, peek, and isEmpty operations.
+
+Queues:
+    - A FIFO data structure that supports add (enqueue), remove (dequeue), peek, and isEmpty operations.
