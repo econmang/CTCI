@@ -1,0 +1,14 @@
+A recursive function is one that calls itself -- essentially a divide-and-conquer algorithm that breaks down a problem into simpler cases.
+
+A recursive function is normally broken into two parts:
+    - A base case handles the simplest case that the recursive function is meant to handle and ensures that the function has a final return. 
+    - A recursive case handles anything other than the base case and is used to break the problem to a simpler form and then pass this simplified form to another call to itself.
+
+The Call Stack:
+    - A stack is a LIFO data structure. Allows for pushes onto the stack, pops to remove items from the stack. 
+    - In the call stack, function calls are added to the stack, allocating memory for its future use. Once the function returns, the data is popped from the stack and returned to the running process.
+
+    - The call stack is utilized by recursive function calls as well, where each recursive call gets added to the stack. Then, when a base case return is called, the value is popped and returned to the calling function.
+    - This process continues until each recursive call resolves and pops the final value from the stack.
+    - Something to note, each recursive call takes memory on the stack. If the required amount of calls overflows on the stack, you have to rewrite the implementation to handle the necessary data.
+    - To do this, you can rewrite utilizing a loop (more memory efficient, even if less readable code-wise) or utilize an advanced recursive technique known as tail recursion.
