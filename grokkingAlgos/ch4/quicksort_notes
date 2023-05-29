@@ -23,4 +23,38 @@ Example.) Consider you want to split land on a farm in the largest available, eq
 
 
 Quicksort:
+    Quicksort is also a D&C algo.
+    Base case: if the length of the array is less than 2, return the array as is.
+    Length 2: Check if first smaller than second element; swap if needed.
+    Greater than 2: Select an element in the array (pivot) and sort into 2 arrays
+    		    First is nums smaller than pivot, second is number greater.
+		    This process is known as partitioning. The partitions
+		    then go through the same process of sorting.
+		    Once each is sorted, we have left arr + pivot + right arr
+   
+   You can find an impl of quicksort under impls in this folder.
+
+Inductive Proofs:
+   Proof by induction is a method used to prove that certain algos work.
+   Each inductive proof has two steps:
+   	- The base case
+	- The inductive case
+   You prove the method for the base case f(n_0) (n_0 member of Z).
+   Then we assume it work in the k case (k >= n_0)
+   Then we prove it can work in the k+1 case. If we can solve this final
+   step, we have proven our algorithm by proof by induction.
+
+Big O notation - Revisited:
+   Quicksort's time complexity is dependent on the pivot chosen, but in the
+   worst case, it's O(n^2), which is as slow as selection sort.
+   In its average case, repesented in Big-theta notation, Θ(nlogn)
+
+If merge sort is O(nlogn) all the time, but quicksort only matches in the avg case,
+why not always use merge sort?
+
+Normally we would disregard the constant, and this should be the practice when
+the time complexities. But in the case where two algorithms have the same time
+complexity in Big O, then sometimes a constant, c, can have an impact.
+Quicksort has a smaller time constant than merge sort, and since it hits the avg case
+much more often than the worst case, it is generally faster than merge sort.
 
