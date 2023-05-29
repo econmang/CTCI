@@ -1,0 +1,6 @@
+A tree is a data structure consisting of nodes.
+The topmost of the node is the root node, and has no parent nodes.
+The root node can have 0 or more children nodes.
+
+The tree cannot contain cycles and may or may not have children
+nodes with references to parent nodes.
