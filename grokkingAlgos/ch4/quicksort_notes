@@ -22,3 +22,5 @@ Example.) Consider you want to split land on a farm in the largest available, eq
                   else (head arr) + (sum (tail arr))
 
 
+Quicksort:
+
