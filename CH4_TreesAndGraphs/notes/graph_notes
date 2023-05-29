@@ -1,0 +1,53 @@
+Graphs:
+A tree is actually a type of graph, but not all graphs are trees.
+A tree is a connected graph, without cycles.
+
+Simply, a graph is a collection of nodes (or vertices) and edges (btwn some of them).
+A directed graph determines the direction you can travel along edges.
+And undirected graph allows for two-way travel.
+
+A graph that contains a path between any two nodes is called a connected graph.
+A graph that does not contain any cycles is called an acyclic graph.
+
+Adjacency List:
+Simplest means of representing edges between vertices. Each node has a list of
+connected vertices. In an undirected graph, each node would have a reference to one
+another in each list.
+
+Adjacency Matrix:
+An n x n matrix where a true value at matrix[i][j] indicates an edge from node i to node j.
+
+Graph Search:
+Breadth-First Search (BFS): Neighbors of each node are visited before heading traveling
+                            down the graph.
+Depth-First Search (DFS): Travel down as far as you can the graph before visiting neighboring.
+                          nodes.
+DFS is normally used when you're planning on visiting each node.
+BFS is normally used when you're solving a shortest path problem.
+
+DFS Pseudocode:
+void search(Node root):
+    if (root == null) return
+    visit(root)
+    root.visited = true
+    foreach Node n in root.adjacent:
+        if n.visited == false:
+	    search(n)
+
+BFS Pseudocode:
+void search(Node root):
+    Queue queue = new Queue()
+    root.marked = true
+    queue.enqueue(root)
+
+    while !queue.isEmpty():
+        Node r = queue.deque()
+	visit(r)
+	foreach Node n in r.adjacent:
+	    if n.marked == false:
+	        n.marked = true
+		queue.enqueue(n)
+
+Bidirectional Search:
+A means of finding the shortest path between two nodes that essentially spawns a BFS
+from the source and target nodes. When the paths collide, we have our shortest path.
