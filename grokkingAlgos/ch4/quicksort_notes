@@ -1,0 +1,24 @@
+Divide-and-Conquer (D&C) is a recursive algo.
+
+You figure out the base case (simplest possible case), and then divide or decrease your problem until it becomes the best case.
+
+Example.) Consider you want to split land on a farm in the largest available, equally sized square plots, where the land is originally a rectangle with sides x & y.
+          WOLOG, the base case would be if y was a multiple of x. Then you would divide the land in (y/x) square plots, each with sides of length x.
+
+          In the D&C case we would originally split the plot into the largest available plot size until we find the remainder. WOLOG, let's say y > x, where y is not a multiple of x.
+          Then we first break up the plot into (y // x) + 1 (where // represents integer division), and the final plot holding the remaining value of y % x (where % represents the modulo operator).
+
+          The algorithm is then recursively applied to the remaining segment. If you continue this until you find the largest plot for the recursive case, this gives the largest size utilizable
+          for the rest of the divided farmland plots. This recursive algorithm for finding the GCD (greatest commond denominator) between two integers is known as Euclid's algorithm.
+
+"Sneak peak at functional programming":
+    Functional programming languages like Haskell don't have loops, so you have to use recursion to write functions like this. 
+    sum [] = 0 --base case
+    sum (x:xs) = x + (sum xs) --recursive case
+
+    This can be similarly written w/ an if condition:
+    sum arr = if arr == []
+                  then 0
+                  else (head arr) + (sum (tail arr))
+
+
