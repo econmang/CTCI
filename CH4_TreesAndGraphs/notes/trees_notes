@@ -4,3 +4,58 @@ The root node can have 0 or more children nodes.
 
 The tree cannot contain cycles and may or may not have children
 nodes with references to parent nodes.
+
+Binary Tree vs. Binary Search Tree:
+A binary tree is a tree where each node can have, at max, two children.
+A binary search tree is a binary tree with the additional attribute
+of where all nodes in the left subtree are less than or equal to the key
+of the current node, and all nodes in the right subtree are greater than
+the key of the current node.
+
+Balanced Binary Tree:
+A balanced binary tree is a binary tree in which the height of the left and right subtree
+of any node differ by not more than 1.
+
+Complete Binary Tree:
+A complete binary tree is one that is full at every level, save for the last level.
+In order for a binary tree to be considered complete with a non-full last level,
+it must be filled from left to right.
+
+Full Binary Tree:
+A full binary tree is a tree in which each node has either zero or two children.
+
+Perfect Binary Tree:
+A perfect binary tree is one in which each interior node has two children,
+and each leaf node is the same level. A perfect binary tree must have 2^k-1 nodes,
+where k is the number of levels for the tree.
+
+Traversal Methods:
+    - In-Order Traversal: Means to vist the left, then current, then right nodes.
+    - Pre-Order Traversal: Means to visit the current node and then its children nodes.
+    - Post-Order Traversal: Means to visit the right node, then current, then left nodes.
+
+Binary Heaps (Min-Heaps and Max-Heaps):
+These are essentially equivalent, where max-heaps are just in descending order
+rather than ascending order.
+
+Min-Heap: A complete binary tree where each node is smaller than its children.
+          This means the root is the minimum of the tree.
+	  They have two key operations: insert and extract_min
+When inserting, you start at the bottom of the tree and try to find a placement
+that ensures the binary tree stays complete. You "bubble up" the element by swapping
+it with elements it is smaller than as you go.
+Insert takes O(logn)
+Extacting the min means to pop the root node out of the structure. You replace it with
+the bottom-most, right-most element. This is then "bubbled down" to find the true
+replacement for the minimum in the tree.
+Extraction takes O(logn)
+
+Tries (Prefix Trees)
+A variant of a n-ary tree in which characters are stored at each node. Each path down
+the tree represents a word. Nodes with a character * (called "null nodes") can indicate
+the end of a word. (Ex. (M) -> (A) -> (N) -> (*))
+It can take O(k) to find if a word is a valid word, or O(k) to find if it's a valid prefix,
+where k is the length of the string passed.
+This is actually the same time complexity as a hash table (as it still has to parse the length
+of an argument, even if the lookup operation itself is O(1).
+And it comes with the added benefit of prefix lookup instead of only full-word lookup.
