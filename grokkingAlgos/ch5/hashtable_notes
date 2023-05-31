@@ -1,0 +1,10 @@
+Hash Functions:
+A mapping function that takes a string input and maps it to a numerical value
+Function must be surjective and injective (onto and 1-to-1)
+It must return a number that is a valid index for your data store
+
+Hash Table:
+A data structure that utilizes a hash function to map inputs to memory
+(normally represented by an array).
+
+
