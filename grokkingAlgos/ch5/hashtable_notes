@@ -7,4 +7,20 @@ Hash Table:
 A data structure that utilizes a hash function to map inputs to memory
 (normally represented by an array).
 
+Caching:
+Data from webpages are cached in a hash tables.
+On-load, data is checked for in the local cache.
+If it exists there, it can be used to render the page quickly without make server calls.
+This speeds up the webpage load and reduces data traffic.
 
+Collisions:
+It is difficult to create a hash function that uniquely maps inputs to outputs. In the case where two inputs map to the same output, this is called a collision.
+There are multiple means of handling this; a simple way is to have each hashed input of the array to map to a linked list containing all elements that the function maps to that index.
+
+In order to avoid having to deal with collision and limiting the length of the linked lists associated, the selection of a fitting hash function is very important.
+Load Factor: (the number of items in hash tables) / (Total number of slots) -- important to keep low to limit collisions as well.
+
+If the load factor of your array gets too large, you can expand the array (normally by doubling its size) then recopy the items from the initial array.
+A good hash function will distribute values in the array evenly to ensure constant time on lookup.
+
+In the worst case (all values being mapped to one output value), you forgo the benefit of the hashtable, yielding an O(n) for lookup.
