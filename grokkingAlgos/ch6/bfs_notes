@@ -1,0 +1,19 @@
+Chapter 6: Breadth-First Search
+
+A graph, simply, is a set of connections. They are made up of nodes and connections (edges that show whether or not nodes are connected).
+Nodes that are directly connected to each other are known as neighbors.
+
+A graph can be directed ( A --> B ) or undirected ( A <--> B )
+
+Breadth-First Search:
+A graph-based search algo. The basic algo is to choose a start node. You create a list of all neighbors for this node.
+Each node in the neighbor list is checked against the search condition. If one of these matches, search is done.
+Else, you finish check the neigbors and add each of their neighbors to the search list.
+In this way, you'll eventually search the entirety of your graph space.
+
+BFS is used to find if a path from Node A to Node B exists, and can further be used to find the shortest path between two nodes.
+
+To aid in finding the shortest path between nodes, we can leverage a data structure that prioritizes first-order connections over second-order, and so on.
+To do this, we'd use a FIFO queue. That way, you know that if you find a path between two nodes in the queue, it was the lowest number of hops between the nodes, giving you the shortest path.
+
+We can use a hashtable to represent the connection between nodes.
