@@ -16,4 +16,18 @@ BFS is used to find if a path from Node A to Node B exists, and can further be u
 To aid in finding the shortest path between nodes, we can leverage a data structure that prioritizes first-order connections over second-order, and so on.
 To do this, we'd use a FIFO queue. That way, you know that if you find a path between two nodes in the queue, it was the lowest number of hops between the nodes, giving you the shortest path.
 
+(Note: Stacks LIFO data structs)
+
 We can use a hashtable to represent the connection between nodes.
+
+Topological sort: Where each node in a directed graph is dependent on the ones higher up the chain.
+
+Tree: A special form of directed graph where the edges between vertices only go "down" the tree. Essentially, they are sorted in a way such that there a no connection back at any level in the tree.
+Example Tree:
+            A
+            |
+        |-------|
+        B       C
+        |       |
+    |-------|-------|
+    D       E       F
