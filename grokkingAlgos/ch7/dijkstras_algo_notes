@@ -1,0 +1,46 @@
+Whereas BFS can be used to find the shortest path, Dijkstra's algorithm can be used to find the fastest path.
+This is done by assigning weights to the paths assigned in the graph (in the case of finding the "fastest path", we would consider the weights to be expected travel time).
+
+Dijkstra's Algorithm Steps:
+    1. Find the "cheapest" node.
+    2. Update the costs of the neighbors of this node.
+    3. Repeat until you've done this for every node in the graph.
+    4. Calculate the final path
+
+
+Ex.)
+            _______6_____(A)_____1____
+            |             |          |
+            |             3          |
+        (Start)           |         (Finish)
+            |______2_____(B)         |
+                          |______5___|
+
+Step 1: Find the cheapest node from Start, which is B in this case because it would take 2 units of time to get to. For the target node, since we don't know the time to get to it, we mark the time from Start -> Finish as infinity.
+        [Node] [Time To Node]
+          [A]       [6]
+          [B]       [2]
+        [Finish]    [INF]
+Step 2: Update our table to show if any shorter paths have been found for the neighbors of B
+        [Node] [Time To Node]
+          [A]       [5] (2 units to travel to B, 3 to travel to A, which is 1 less than the 6 from Start -> A)
+          [B]       [2] (2 is the shortest from our Start node, so this value stays the same)
+        [Finish]    [7] (2 units to B, then 5 units to Finish, less than infinity, so we update the cost)
+Step 3: Repeat
+    Find the node that takes the least amount of time to get to that we haven't visited yet. Since we're done with B and the time to A is less than the time to Finish, we will repeat the process on A
+          [A]       [5] 
+          [B]       [2] 
+        [Finish]    [7] 
+    From here we see that it takes only 1 unit to get to the Finish from node A, so we update our listed time to get there, accounting for the 1 sec speed up
+          [A]       [5] 
+          [B]       [2] 
+        [Finish]    [6]
+Step 4:
+    Now that we've explored all our options, we can return a final path of Start -> B -> A -> Finish giving us the fastest time.
+    If we were using BFS, we would have gotten Start -> A -> Finish, even though this would have given us a slower path, because it was shorter in terms of nodes traveled.
+    So for the shorted path in an unweighted graph, we use BFS, but for the shortest path in a weighted graph, we use Dijkstra's algo.
+
+Note: Graphs can have cycles, so take care when traversing to not follow a cycle. In a directed graph, this means following the edges that do not lead back to previously traversed nodes.
+      In an undirected graph, this would mean the same thing, essentially don't travel back up the graph to parent nodes.
+
+
