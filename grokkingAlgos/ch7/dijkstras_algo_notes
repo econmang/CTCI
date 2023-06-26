@@ -43,4 +43,5 @@ Step 4:
 Note: Graphs can have cycles, so take care when traversing to not follow a cycle. In a directed graph, this means following the edges that do not lead back to previously traversed nodes.
       In an undirected graph, this would mean the same thing, essentially don't travel back up the graph to parent nodes.
 
-
+Also it's important to note that Dijkstra's algorithm doesn't work with negative weight edges, so, a weight, n, must be >= 0. If you have to navigate/find the shortest path in a graph with negative weight edges,
+see the Bellman-Ford algorithm.
