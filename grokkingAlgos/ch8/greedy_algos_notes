@@ -1,0 +1,12 @@
+Greedy Algorithms: Algorithms that select locally optimal solutions to approach a globally optimal solution.
+
+Knapsack Problem:
+An example where you won't get the optimal solution, but approach it. Assuming you're a thief with a knapsack that can hold 35lbs. You want to maximize the profit from stealing items (each w/ a weight and associated amount of money you can get for it).
+
+Let's say there is a stereo (30lb, $3000), a laptop (20lb, $2000), and a guitar (15lb, $1500).
+The greedy algo would have you grab the highest-value item first, so you grab the stereo.
+Because of the weight, you can't grab anything else, yielding a $3000 value.
+
+You could have gotten a value of $3500 instead if you got the laptop and guitar instead, but you got a solution that approached optimal with much less work.
+
+
