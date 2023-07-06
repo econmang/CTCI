@@ -2,3 +2,8 @@ Dynamic Programming:
 
 This is a process of solving subproblems to build up to the solution of the larger problem.
 
+If we consider the Knapsack Problem again, a sure way to find the optimal solution would be to try all the possible combinations of items to take.
+This brute-force method is O(2^n) -- very, very slow
+
+Utilizing dynamic programming, we'd start with sub-knapsacks to find the optimal solution for smaller problems.
+Dynamic programming algorithms start with a grid/matrix that is representative of the sub-problems and outcomes
