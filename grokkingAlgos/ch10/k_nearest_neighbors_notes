@@ -1,0 +1,24 @@
+k-Nearest Neighbors:
+
+k-nearest neighbors (KNN) is an algorithm for classification.
+|
+|
+|               o o
+|                o   o
+|  *       (x)  o  o   o
+|    *  *           o
+| *    *
+|   *
+|__________________________
+
+In trying to classify the (x) on the graph above, you can utilize the distance to a set of k neighbors. If it's closer to more o's than *'s, we can assume its classification as an o.
+
+
+Feature Extraction:
+Context is important for the classification of items, objects, users, etc.
+For that reason, you can carefully choose any number of features that aid in your process of classification, but collecting an excess of features or under-collection can both lead to classification error.
+
+In terms of distance used, a common metric is the Pythagorean distance formula sqrt((x_2 - x_1)^2 + (y_2 - y_1)^2)
+Since you can have any number of features, this can be expanded to include as many features as needed to determine "feature distance"
+
+Regression:
