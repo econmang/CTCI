@@ -22,3 +22,15 @@ In terms of distance used, a common metric is the Pythagorean distance formula s
 Since you can have any number of features, this can be expanded to include as many features as needed to determine "feature distance"
 
 Regression:
+You can find the avg of the output for the k closest neighbors (similar data sources or users, etc.) to the user to find a predicted output/response.
+KNN can be used for classification and regression
+Classification - Categorization into a group
+Regression - Predicting a response (often numeric)
+
+It's important to pick good features for the classifier/regressive algo you are building. Features should correlate directly to the response you are predicting or groups you are classifying.
+Features should not be biased.
+
+KNN is an introductory algo into the field of machine learning. Optical Character Recognition and simplistic recommendation engines can use this method under the hood. The process of extracting important features is called training.
+
+Spam Filter:
+Spam filters use another algo called naive Bayes classification that has similar application to KNN. After training, it takes in input and finds the probability that the input has a given classification label.
