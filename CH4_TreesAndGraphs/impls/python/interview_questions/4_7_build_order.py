@@ -7,32 +7,49 @@ class Graph:
         self.vertices = []
         self.edges = {}
 
-projects = ['a', 'b', 'c', 'd', 'e', 'f']
-dependencies = [('a', 'd'), ('f', 'b'), ('b', 'd'), ('f', 'a'), ('d', 'c')]
+    def add_edge(self, project, dependency):
+        if self.edges[project] is None:
+            self.edges[project] = []
+        self.edges[project].append(dependency)
 
-def build_graph(projects, dependencies):
-    graph = Graph()
-    for project in projects:
-        graph.vertices.append(project)
-        graph.edges[project] = []
-    for dependency in dependencies:
-        graph.edges[dependency[1]].append(dependency[0])
-    return graph
+    @staticmethod
+    def build_graph(projects, dependencies):
+        graph = Graph()
+        for project in projects:
+            graph.vertices.append(project)
+            graph.edges[project] = []
+        for dependency in dependencies:
+            graph.add_edge(dependency[1], dependency[0])
+        return graph
 
-def get_build_order(graph):
-    build_order = []
-    for key in graph.edges:
-        if len(graph.edges[key]) == 0:
-            if key not in build_order:
-                build_order.append(key)
-        else:
-            for dependency in graph.edges[key]:
-                if dependency not in build_order:
-                    build_order.append(dependency)
-    for project in graph.vertices:
-        if project not in build_order:
-            build_order.append(project)
-    return build_order
+    def get_builds_with_no_dependencies(self, projects, dependencies):
+        builds = []
+        for project in projects:
+            if len(self.edges[project]) == 0:
+                builds.append(project)
+                projects.remove(project)
+                for key in dependencies.keys():
+                    if project in dependencies[key]:
+                        dependencies[key].remove(project)
+        return builds
 
-proj_graph = build_graph(projects, dependencies)
-print(get_build_order(proj_graph))
+    def get_build_order(self):
+        projects = self.vertices.copy()
+        dependencies = self.edges.copy()
+        build_order = []
+        while len(projects) > 0:
+            new_builds = self.get_builds_with_no_dependencies(projects, dependencies)
+            if new_builds == []:
+                Exception("No valid builds")
+            build_order += new_builds
+        return build_order
+
+if __name__ == "__main__":
+    projects = ['a', 'b', 'c', 'd', 'e', 'f']
+    dependencies = [('a', 'd'), ('f', 'b'), ('b', 'd'), ('f', 'a'), ('d', 'c')]
+    print("PROJECT:",projects)
+    print("DEPS:",dependencies)
+    proj_graph = Graph.build_graph(projects, dependencies)
+    print("VERTICES:", proj_graph.vertices)
+    print("EDGES:", proj_graph.edges)
+    print("BUILD ORDER:",proj_graph.get_build_order())
